@@ -2,9 +2,16 @@ package com.springboot.rest.webservices.restfulwebservices.user;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.BatchSize;
+
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 public class User {
-	private int id;	
+	private int id;
+	@Size(min=2,message = "Minimum username length should be 2")
 	private String username;
+	@Past
 	private LocalDate birthDate;
 	
 	public User(int id, String username, LocalDate birthDate) {
